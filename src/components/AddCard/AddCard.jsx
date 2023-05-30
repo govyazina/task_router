@@ -2,15 +2,33 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {GlobalContext} from "../../contexts/globalContext";
 
 export default function AddCard() {
     const [name, setName] = useState('')
     const [imgLink, setImgLink] = useState('')
     const [description, setDescription] = useState('')
+    const {dispatch} = useContext(GlobalContext)
+    const [validation, setValidation] = useState(false)
     const handleAdd = (event) => {
         event.preventDefault()
-        console.log(name)
+        const post = {
+            name,
+            imgLink,
+            description
+        }
+        if (post.name) {
+            dispatch(
+                {
+                    type: 'ADD_CARD',
+                    payload: post,
+                }
+            )
+        } else {
+            setValidation(true)
+        }
+
 
     }
     return (
@@ -24,11 +42,14 @@ export default function AddCard() {
             autoComplete="off"
         >
             <TextField
-                error={name ? false : true}
+                error={validation}
                 id="outlined-basic"
                 label="название"
                 variant="outlined"
-                onInput={e => setName(e.target.value)}/>
+                onInput={e => {
+                    setName(e.target.value)
+                    setValidation(false)
+                }}/>
             <TextField
                 id="outlined-basic"
                 label="описание"
