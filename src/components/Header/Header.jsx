@@ -8,8 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import PetsIcon from '@mui/icons-material/Pets';
 import {Link} from "react-router-dom";
 
 const pages = ['список ресторанов', 'добавить новый'];
@@ -30,12 +29,12 @@ function Header() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
+                    <Link to='/' style={{color: "white"}}>
+                    <PetsIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="/"
                         sx={{
                             mr: 2,
                             display: {xs: 'none', md: 'flex'},
@@ -46,8 +45,9 @@ function Header() {
                             textDecoration: 'none',
                         }}
                     >
-                        жопакота
+
                     </Typography>
+                    </Link>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
                         <IconButton
@@ -82,7 +82,7 @@ function Header() {
 
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
+                    <PetsIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
                     <Typography
                         variant="h5"
                         noWrap
@@ -102,14 +102,14 @@ function Header() {
                         LOGO
                     </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
-                        <Link to='/list'>
+                        <Link to='/list' style={{textDecoration: "none"}}>
                             <Button
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
                                 список ресторанов
                             </Button>
                         </Link>
-                        <Link to='/add'>
+                        <Link to='/add' style={{textDecoration: "none"}}>
                             <Button
                                 sx={{my: 2, color: 'white', display: 'block'}}
                             >
