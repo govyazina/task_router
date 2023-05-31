@@ -14,7 +14,11 @@ export function reducer(state, action) {
                 return {...el}
             })
             return {...state, list: [...newList] }
-
+        }
+        case 'DELETE_CARD': {
+            const id = action.payload
+            const newList = state.list.filter(el => el.id !== id)
+            return {...state, list: [...newList] }
         }
         default: {
             return state
