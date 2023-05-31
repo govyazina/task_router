@@ -7,7 +7,7 @@ import {GlobalContext} from "../../contexts/globalContext";
 
 export default function AddCard() {
     const [name, setName] = useState('')
-    const [imgLink, setImgLink] = useState('')
+    const [imgLink, setImgLink] = useState('https://cdn.dribbble.com/users/1018252/screenshots/14246350/cat.png')
     const [description, setDescription] = useState('')
     const {dispatch} = useContext(GlobalContext)
     const [validation, setValidation] = useState(false)
