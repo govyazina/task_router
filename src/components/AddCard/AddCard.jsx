@@ -1,10 +1,9 @@
 import * as React from 'react';
+import {useContext, useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
-import {useContext, useState} from "react";
 import {GlobalContext} from "../../contexts/globalContext";
-import {Grid} from "@mui/material";
 import Container from "@mui/material/Container";
 import {useNavigate} from "react-router-dom";
 
@@ -21,7 +20,8 @@ export default function AddCard() {
         const post = {
             name,
             imgLink,
-            description
+            description,
+            id: Date.now()
         }
         if (post.name) {
             dispatch(

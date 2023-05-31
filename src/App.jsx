@@ -7,6 +7,7 @@ import {CardList} from "./components/CardList/CardList";
 import {GlobalContext} from "./contexts/globalContext";
 import {useReducer} from "react";
 import {reducer} from "./reducer/reducer";
+import {EditCard} from "./components/EditCard/EditCard";
 
 function App() {
     const initialState = {
@@ -22,6 +23,7 @@ function App() {
                     <Route path='/' element={<Main/>}/>
                     <Route path='/add' element={<AddCard/>}/>
                     <Route path='/list' element={<CardList/>}/>
+                    <Route path='/edit/:id' element={<EditCard/>}/>
                 </Routes>
             </GlobalContext.Provider>
         </>

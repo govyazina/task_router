@@ -6,7 +6,7 @@ export const CardList = () => {
 	const {state: {list}} = useContext(GlobalContext)
 	return (
 		<>
-			{list.map(post => <RestCard
+			{list.map(post => <RestCard key={post.id}
 				{...post}
 			/>)}
 		</>
