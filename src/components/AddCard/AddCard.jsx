@@ -30,10 +30,11 @@ export default function AddCard() {
                     payload: post,
                 }
             )
+            navigate('/list')
         } else {
             setValidation(true)
         }
-        navigate('/list')
+
 
 
 
